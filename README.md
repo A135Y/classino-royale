@@ -22,6 +22,11 @@ die.sides // => 6
 die.roll() // => random int from 1, 2, 3, 4, 5, 6
 ```
 
+If the number of sides is invalid, throw an error:
+```js
+throw new Error('sides must be greater than 3 and less than 21')
+```
+
 ### Cup
 
 A cup contains several dice which can all be rolled at the same time. Each cup object should have one property and one method:
@@ -46,9 +51,23 @@ cup.dice[0].roll() // => random int from 1, 2, 3, 4
 
 Write two classes: `Player` and `Machine`.
 
-`Machine`'s constructor should have parameters of `costToPlay`, `smallPayout`, and `bigPayout`. It should have a method called `spin()` which logs to the console a string of length 3 made from random, uppercase alphabet characters (e.g. `'ABC'`). If the letters are all distinct, `spin()` returns `0`; if exactly two are the same, it returns `smallPayout`; if all three are the same, it returns `bigPayout`.
+### Machine
 
-`Player` should have properties of `name` and `balance`, representing how much money the player has left. It should have a method of `play(machine)` where `machine` is an instance of `Machine`. When the method is called, the player should lose the `cost` of the machine and gain the (possibly `0`) payout. If the player's balance is less than the cost to play, log a message to the console explaining so. 
+`Machine` should have properties of `costToPlay`, `smallPayout`, and `bigPayout`. It should have a method called `spin()` which logs to the console a string of length 3 made from random, uppercase alphabet characters (e.g. `'ABC'`). If the letters are all distinct, `spin()` returns `0`; if exactly two are the same, it returns `smallPayout`; if all three are the same, it returns `bigPayout`.
+
+### Player
+
+`Player` should have properties of `name` and `balance`, representing how much money the player has left. It should have a method of `play(machine)` where `machine` is an instance of `Machine`. When the method is called, the player should lose the `cost` of the machine and gain the (possibly `0`) payout. If the player's balance is less than the cost to play, log a message to the console and do nothing. 
+
+```js
+const machine = new Machine(2, 10, 100)
+
+const player = new Player('Muggins', 30)
+
+player.play(machine) // 'ABC' => player.balance === 28
+player.play(machine) // 'XYX' => player.balance === 36
+player.play(machine) // 'QQQ' => player.balance === 134
+```
 
 ## Hard: Deck of cards
 
