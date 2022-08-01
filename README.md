@@ -6,7 +6,7 @@ The purpose of this assignment is to use classes to model a few different items 
 
 One important thing to know is that `Math.random()` can be used to generate a random decimal between `0` and `1` (with `1` excluded). This can be used with `Math.floor()` and a bit of ingenuity to create random integers in any range. It is worth having a go at figuring out how to do this, but don't struggle with it for too long: search the internet for help when you need it.
 
-## Medium: Dice
+## Easy: Dice
 
 Write two classes: `Die` and `Cup`. (Die is the singular form of the word dice.)
 
@@ -42,6 +42,14 @@ cup.dice[2].sides // => 10
 cup.dice[0].roll() // => random int from 1, 2, 3, 4
 ```
 
+## Medium: Slot machine
+
+Write two classes: `Player` and `Machine`.
+
+`Machine`'s constructor should have parameters of `costToPlay`, `smallPayout`, and `bigPayout`. It should have a method called `spin()` which logs to the console a string of length 3 made from random, uppercase alphabet characters (e.g. `'ABC'`). If the letters are all distinct, `spin()` returns `0`; if exactly two are the same, it returns `smallPayout`; if all three are the same, it returns `bigPayout`.
+
+`Player` should have properties of `name` and `balance`, representing how much money the player has left. It should have a method of `play(machine)` where `machine` is an instance of `Machine`. When the method is called, the player should lose the `cost` of the machine and gain the (possibly `0`) payout. If the player's balance is less than the cost to play, log a message to the console explaining so. 
+
 ## Hard: Deck of cards
 
 Write two classes: `Card` and `Deck`.
@@ -65,20 +73,20 @@ Write two classes: `Card` and `Deck`.
 
 **methods**
 
- - `flip()` | flips the card over (toggles `faceUp`)
- - `show()` | lays the card facing up
- - `hide()` | lays the card facing down
+ - `flip()` | Flips the card over (toggles `faceUp`)
+ - `show()` | Lays the card facing up
+ - `hide()` | Lays the card facing down
 
 ### Deck
 
 **Properties**
 
- - `cards` | *array* | an array of 52 distinct cards. `cards[0]` is the top card; `cards[51]` is the bottom card.
+ - `cards` | *array* | An array of 52 distinct cards. `cards[0]` is the top card; `cards[51]` is the bottom card.
 
-**methods**
+**Methods**
 
- - `flip()` | Turns the deck over (every card should now be face up).
- - `deal()` | Removes the **top** card from the deck and returns it (the top card will depend on which way the deck is flipped).
+ - `flip()` | Turns the deck over. Order of cards and `faceUp` property of each card should update appropriately.
+ - `deal(n)` | Removes the **top** n cards from the deck and returns them as an array (the top card will depend on which way the deck is flipped).
  - `random()` | Removes a random card from the deck and returns it.
  - `pick(suit, val)` | Removes the card of given suit and val from the deck and returns it. 
  - `cut(n)` | Splits the deck into two stacks of length `n` and `52 - n` and places the bottom stack on top.
