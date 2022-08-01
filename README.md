@@ -1,10 +1,16 @@
 # Classino Royale
 
-The purpose of this assignment is to use classes to model a few different items you might find in a casino.
+The purpose of this assignment is to use classes to model a few different things you might find in a casino.
 
 ## Random numbers
 
 One important thing to know is that `Math.random()` can be used to generate a random decimal between `0` and `1` (with `1` excluded). This can be used with `Math.floor()` and a bit of ingenuity to create random integers in any range. It is worth having a go at figuring out how to do this, but don't struggle with it for too long: search the internet for help when you need it.
+
+## Assessment
+
+There are no tests for this project. You should manually test your classes with `console.log()` in the space identified by the comments.
+
+This work will be peer assessed: you will be assigned a random other apprentice's work and asked to write some comments about how well they accomplished the challenges they attempted, and how it could be improved.
 
 ## Easy: Dice
 
@@ -61,6 +67,7 @@ Write two classes: `Player` and `Machine`.
 
 ```js
 const machine = new Machine(2, 10, 100)
+machine.spin() // e.g. 'PPK' => 10
 
 const player = new Player('Muggins', 30)
 
@@ -75,7 +82,7 @@ Write two classes: `Card` and `Deck`.
 
 ### Card
 
-`Card`'s constructor should have two paramters: `suit` and `val`. Possible values for `suit` are `D`, `H`, `C`, `S` (corresponding to diamonds, hearts, clubs and spades). Possible values for `val` are `A`, `2`, ..., `10`, `J`, `Q`, `K` (the first is ace; the latter three are jack, queen and king). We assume there are no jokers.
+`Card`'s constructor should have two parameters: `suit` and `val`. Possible values for `suit` are `D`, `H`, `C`, `S` (corresponding to diamonds, hearts, clubs and spades). Possible values for `val` are `A`, `2`, ..., `10`, `J`, `Q`, `K` (the first is ace; the latter three are jack, queen and king). We assume there are no jokers.
 
 **Properties**
 
@@ -93,8 +100,8 @@ Write two classes: `Card` and `Deck`.
 **methods**
 
  - `flip()` | Flips the card over (toggles `faceUp`)
- - `show()` | Lays the card facing up
- - `hide()` | Lays the card facing down
+ - `show()` | Sets the card facing up
+ - `hide()` | Sets the card facing down
 
 ### Deck
 
@@ -104,8 +111,8 @@ Write two classes: `Card` and `Deck`.
 
 **Methods**
 
- - `flip()` | Turns the deck over. Order of cards and `faceUp` property of each card should update appropriately.
- - `deal(n)` | Removes the **top** n cards from the deck and returns them as an array (the top card will depend on which way the deck is flipped).
+ - `flip()` | Turns the deck over. Imagine thie in your mind: the order of the cards and `faceUp` property of each card should update accordingly (the bottom card becomes the top card, etc).
+ - `deal()` | Removes the **top** card from the deck and returns it.
  - `random()` | Removes a random card from the deck and returns it.
  - `pick(suit, val)` | Removes the card of given suit and val from the deck and returns it. 
  - `cut(n)` | Splits the deck into two stacks of length `n` and `52 - n` and places the bottom stack on top.
