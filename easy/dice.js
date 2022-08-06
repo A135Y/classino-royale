@@ -1,5 +1,9 @@
 // write your classes:
-
+class Die {
+    constructor(val,val2){
+        
+    }
+}
 
 
 // test your classes with console.log
