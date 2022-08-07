@@ -22,12 +22,10 @@ console.log(newDie.roll());
 class Cup {
     
     constructor(dice){
-        for(let i = 0; i < this.dice.length; i++){
-            this.sides = this.dice[i]
-        }
         this.dice = dice
      }
      
+
      spill(){
          for(let i = 0; i < this.dice.length; i++){
              this.dice[i] = Math.floor(Math.random()*this.dice[i]+1)

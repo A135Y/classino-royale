@@ -35,9 +35,18 @@ class Player {
 
 
     play(machine){
-        this.machine = machine;
-        this.machine = new Machine();
-        
+        if(this.balance < machine.costToPlay) console.log("You're Too Broke To Gamble");
+        this.balance -= machine.costToPlay;
+        if(machine.spin() == machine.smallPayout){
+            this.balance += machine.smallPayout;
+            return this;
+        } else if(machine.spin() == machine.bigPayout){
+            this.balance += machine.bigPayout;
+            return this;
+        }
+        else{
+            return this;
+        }
     }
 }
 
