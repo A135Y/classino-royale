@@ -1,0 +1,25 @@
+{
+  "name": "classino-royale",
+  "version": "1.0.0",
+  "description": "The purpose of this assignment is to use classes to model a few different things you might find in a casino.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A135Y/classino-royale.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/A135Y/classino-royale/issues"
+  },
+  "homepage": "https://github.com/A135Y/classino-royale#readme",
+  "dependencies": {
+    "jest": "^28.1.3"
+  }
+}

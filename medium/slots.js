@@ -1,50 +1,50 @@
 // write your classes:
 class Machine {
 
-    constructor(costToPlay,smallPayout,bigPayout){
+    constructor(costToPlay, smallPayout, bigPayout) {
         this.costToPlay = costToPlay;
         this.smallPayout = smallPayout;
         this.bigPayout = bigPayout;
     }
 
-    spin(){
-        let alpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
-                 'N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-let result = [];
-while(result.length < 3){
-    result.push(alpha[Math.floor(Math.random()* alpha.length)])
-}
-    console.log(result)
-    if(result[0] == result[1] && result[0] == result[2]) return this.bigPayout;
-    
-    if(result[0] == result[1] || result[0] == result[2] || 
-       result[1] == result[2]) return this.smallPayout; 
-    if(result[0] !== result[1] && result[0] !== result[2] && result[1] !== result[2]) return 0;
+    spin() {
+        let alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        let result = [];
+        while (result.length < 3) {
+            result.push(alpha[Math.floor(Math.random() * alpha.length)])
+        }
+        console.log(result)
+        if (result[0] == result[1] && result[0] == result[2]) return this.bigPayout;
 
-}
+        if (result[0] == result[1] || result[0] == result[2] ||
+            result[1] == result[2]) return this.smallPayout;
+        if (result[0] !== result[1] && result[0] !== result[2] && result[1] !== result[2]) return 0;
+
+    }
 
 }
 
 
 class Player {
-    
-    constructor(name, balance){
+
+    constructor(name, balance) {
         this.name = name;
         this.balance = balance;
     }
 
 
-    play(machine){
-        if(this.balance < machine.costToPlay) console.log("You're Too Broke To Gamble");
+    play(machine) {
+        if (this.balance < machine.costToPlay) console.log("You're Too Broke To Gamble");
         this.balance -= machine.costToPlay;
-        if(machine.spin() == machine.smallPayout){
+        if (machine.spin() == machine.smallPayout) {
             this.balance += machine.smallPayout;
             return this;
-        } else if(machine.spin() == machine.bigPayout){
+        } else if (machine.spin() == machine.bigPayout) {
             this.balance += machine.bigPayout;
             return this;
         }
-        else{
+        else {
             return this;
         }
     }
@@ -77,3 +77,5 @@ class Player {
 // player.play(machine) // 'XYX' => player.balance === 36
 // player.play(machine) // 'QQQ' => player.balance === 134
 // ```
+
+module.exports = {Machine, Player}
